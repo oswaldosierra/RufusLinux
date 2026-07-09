@@ -8,3 +8,4 @@ Icon=rufuslinux
 Terminal=false
 Categories=System;Utility;
 StartupNotify=true
+StartupWMClass=RufusLinux.UI
