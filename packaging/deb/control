@@ -4,7 +4,7 @@ Section: utils
 Priority: optional
 Architecture: amd64
 Depends: parted, dosfstools, ntfs-3g, exfatprogs, rsync, util-linux, policykit-1
-Maintainer: RufusLinux Project <noreply@example.com>
+Maintainer: Oswaldo Sierra <oswaldox199@gmail.com>
 Description: Rufus-like bootable USB creator for Linux
  RufusLinux is a graphical tool for creating bootable USB drives from
  ISO images, mirroring the layout and workflow of the Windows tool Rufus.

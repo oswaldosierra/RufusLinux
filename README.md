@@ -20,7 +20,9 @@
 
 ## Screenshots
 
-_Add a screenshot of the app here._
+<p align="center">
+  <img src="docs/screenshot.png" alt="RufusLinux main window" width="420">
+</p>
 
 ## Requirements
 
