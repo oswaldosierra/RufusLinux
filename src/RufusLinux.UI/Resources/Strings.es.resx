@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="DeviceHeader" xml:space="preserve"><value>Dispositivo</value></data>
+  <data name="RefreshDeviceListTooltip" xml:space="preserve"><value>Actualizar lista de dispositivos</value></data>
+  <data name="BootSelectionHeader" xml:space="preserve"><value>Selección de arranque</value></data>
+  <data name="SelectButton" xml:space="preserve"><value>SELECCIONAR</value></data>
+  <data name="PartitionSchemeLabel" xml:space="preserve"><value>Esquema de particiones</value></data>
+  <data name="TargetSystemLabel" xml:space="preserve"><value>Sistema de destino</value></data>
+  <data name="FormatOptionsHeader" xml:space="preserve"><value>Opciones de formato</value></data>
+  <data name="VolumeLabelLabel" xml:space="preserve"><value>Etiqueta del volumen</value></data>
+  <data name="FileSystemLabel" xml:space="preserve"><value>Sistema de archivos</value></data>
+  <data name="ClusterSizeLabel" xml:space="preserve"><value>Tamaño de clúster</value></data>
+  <data name="QuickFormatLabel" xml:space="preserve"><value>Formato rápido</value></data>
+  <data name="ExtendedLabelLabel" xml:space="preserve"><value>Crear etiqueta extendida y archivos de icono</value></data>
+  <data name="ShowHideLogTooltip" xml:space="preserve"><value>Mostrar/ocultar registro</value></data>
+  <data name="StartButton" xml:space="preserve"><value>INICIAR</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>CERRAR</value></data>
+  <data name="OkButton" xml:space="preserve"><value>Aceptar</value></data>
+  <data name="CancelButton" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="UseNtfsButton" xml:space="preserve"><value>Usar NTFS (recomendado)</value></data>
+  <data name="KeepFat32Button" xml:space="preserve"><value>Mantener FAT32</value></data>
+  <data name="IsoHybridTitle" xml:space="preserve"><value>Imagen ISOHybrid detectada</value></data>
+  <data name="IsoHybridMessage" xml:space="preserve"><value>Esta imagen ISO usa un archivo install.wim/install.esd mayor de 4 GB, que FAT32 no puede almacenar.
+
+Se recomienda cambiar a NTFS. Si mantiene FAT32, la escritura de esta imagen fallará.</value></data>
+  <data name="ConfirmTitle" xml:space="preserve"><value>Confirmar</value></data>
+  <data name="AreYouSure" xml:space="preserve"><value>¿Está seguro?</value></data>
+  <data name="ConfirmDestroyMessage" xml:space="preserve"><value>TODOS LOS DATOS EN {0} SERÁN DESTRUIDOS.
+¿Continuar?</value></data>
+  <data name="NoBootSelected" xml:space="preserve"><value>Sin arranque seleccionado</value></data>
+  <data name="StandardWindowsInstallation" xml:space="preserve"><value>Instalación estándar de Windows</value></data>
+  <data name="WindowsToGo" xml:space="preserve"><value>Windows To Go</value></data>
+  <data name="Ready" xml:space="preserve"><value>LISTO</value></data>
+  <data name="AnalyzingIso" xml:space="preserve"><value>ANALIZANDO ISO...</value></data>
+  <data name="NoDeviceSelected" xml:space="preserve"><value>NINGÚN DISPOSITIVO SELECCIONADO</value></data>
+  <data name="NoImageSelected" xml:space="preserve"><value>NINGUNA IMAGEN SELECCIONADA</value></data>
+  <data name="Starting" xml:space="preserve"><value>INICIANDO...</value></data>
+  <data name="Done" xml:space="preserve"><value>LISTO</value></data>
+  <data name="Error" xml:space="preserve"><value>ERROR</value></data>
+  <data name="ErrorWithMessage" xml:space="preserve"><value>ERROR: {0}</value></data>
+  <data name="CheckingDevice" xml:space="preserve"><value>VERIFICANDO DISPOSITIVO...</value></data>
+  <data name="Unmounting" xml:space="preserve"><value>DESMONTANDO...</value></data>
+  <data name="Partitioning" xml:space="preserve"><value>PARTICIONANDO...</value></data>
+  <data name="Formatting" xml:space="preserve"><value>FORMATEANDO...</value></data>
+  <data name="CopyingFiles" xml:space="preserve"><value>COPIANDO ARCHIVOS...</value></data>
+  <data name="BiosOrUefiCsm" xml:space="preserve"><value>BIOS o UEFI-CSM</value></data>
+  <data name="UefiNonCsm" xml:space="preserve"><value>UEFI (sin CSM)</value></data>
+</root>

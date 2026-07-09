@@ -1,0 +1,18 @@
+# .NET build output
+bin/
+obj/
+*.pdb
+
+# Packaging / publish output
+artifacts/
+
+# Rider / VS / VSCode
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS cruft
+.DS_Store
+Thumbs.db

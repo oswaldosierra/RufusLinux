@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=RufusLinux
+Comment=Create bootable USB drives from ISO images
+Comment[es]=Crea unidades USB de arranque a partir de imágenes ISO
+Exec=/opt/rufuslinux/RufusLinux.UI
+Icon=rufuslinux
+Terminal=false
+Categories=System;Utility;
+StartupNotify=true

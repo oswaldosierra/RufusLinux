@@ -1,0 +1,181 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RufusLinux.UI.ViewModels"
+        xmlns:conv="using:RufusLinux.UI.Converters"
+        xmlns:loc="using:RufusLinux.UI.Localization"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="415" d:DesignHeight="410"
+        x:Class="RufusLinux.UI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Width="415"
+        SizeToContent="Height"
+        CanResize="False"
+        Icon="/Assets/rufuslinux.png"
+        Title="RufusLinux 4.0.0">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Resources>
+        <conv:EnumDisplayConverter x:Key="EnumDisplay"/>
+    </Window.Resources>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom"
+                IsVisible="{Binding IsLogVisible}"
+                Height="160"
+                BorderThickness="0,1,0,0"
+                BorderBrush="Gray">
+            <TextBox Text="{Binding LogText}"
+                     IsReadOnly="True"
+                     FontFamily="monospace"
+                     FontSize="11"
+                     AcceptsReturn="True"
+                     TextWrapping="NoWrap"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        </Border>
+
+        <Grid Margin="9" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+            <!-- Device -->
+            <GroupBox Grid.Row="0" Header="{x:Static loc:Strings.DeviceHeader}" Margin="0,0,0,6">
+                <Grid ColumnDefinitions="*,Auto">
+                    <ComboBox Grid.Column="0"
+                              ItemsSource="{Binding Devices}"
+                              SelectedItem="{Binding SelectedDevice}"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DisplayName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Grid.Column="1"
+                            Width="24" Height="24"
+                            Padding="3"
+                            Margin="4,0,0,0"
+                            Command="{Binding RefreshDevicesCommand}"
+                            ToolTip.Tip="{x:Static loc:Strings.RefreshDeviceListTooltip}">
+                        <Viewbox Stretch="Uniform">
+                            <Path Fill="{Binding $parent[Button].Foreground}"
+                                  Data="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </GroupBox>
+
+            <!-- Boot selection -->
+            <GroupBox Grid.Row="1" Header="{x:Static loc:Strings.BootSelectionHeader}" Margin="0,0,0,6">
+                <StackPanel>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <ComboBox Grid.Column="0"
+                                  ItemsSource="{Binding BootSources}"
+                                  SelectedItem="{Binding SelectedBootSource}"
+                                  HorizontalAlignment="Stretch"/>
+                        <Button Grid.Column="1"
+                                Content="{x:Static loc:Strings.SelectButton}"
+                                Width="75"
+                                Margin="4,0,0,0"
+                                Command="{Binding SelectIsoCommand}"/>
+                    </Grid>
+                    <ComboBox Margin="0,6,0,0"
+                              IsVisible="{Binding IsWindowsIsoLoaded}"
+                              ItemsSource="{Binding ImageOptions}"
+                              SelectedItem="{Binding SelectedImageOption}"
+                              HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Partition scheme / Target system -->
+            <Grid Grid.Row="2" ColumnDefinitions="*,*" Margin="0,0,0,6">
+                <StackPanel Grid.Column="0" Margin="0,0,4,0">
+                    <TextBlock Text="{x:Static loc:Strings.PartitionSchemeLabel}" Margin="0,0,0,2"/>
+                    <ComboBox ItemsSource="{Binding PartitionSchemes}"
+                              SelectedItem="{Binding SelectedPartitionScheme}"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Converter={StaticResource EnumDisplay}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="4,0,0,0">
+                    <TextBlock Text="{x:Static loc:Strings.TargetSystemLabel}" Margin="0,0,0,2"/>
+                    <ComboBox ItemsSource="{Binding TargetSystems}"
+                              SelectedItem="{Binding SelectedTargetSystem}"
+                              HorizontalAlignment="Stretch">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Converter={StaticResource EnumDisplay}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+
+            <!-- Format Options -->
+            <GroupBox Grid.Row="3" Header="{x:Static loc:Strings.FormatOptionsHeader}" Margin="0,0,0,6">
+                <StackPanel>
+                    <TextBlock Text="{x:Static loc:Strings.VolumeLabelLabel}" Margin="0,0,0,2"/>
+                    <TextBox Text="{Binding VolumeLabel}"/>
+                    <Grid ColumnDefinitions="*,*" Margin="0,6,0,0">
+                        <StackPanel Grid.Column="0" Margin="0,0,4,0">
+                            <TextBlock Text="{x:Static loc:Strings.FileSystemLabel}" Margin="0,0,0,2"/>
+                            <ComboBox ItemsSource="{Binding FileSystems}"
+                                      SelectedItem="{Binding SelectedFileSystem}"
+                                      HorizontalAlignment="Stretch">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource EnumDisplay}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="4,0,0,0">
+                            <TextBlock Text="{x:Static loc:Strings.ClusterSizeLabel}" Margin="0,0,0,2"/>
+                            <ComboBox ItemsSource="{Binding ClusterSizes}"
+                                      SelectedItem="{Binding SelectedClusterSize}"
+                                      HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </Grid>
+                    <CheckBox Content="{x:Static loc:Strings.QuickFormatLabel}" IsChecked="{Binding QuickFormat}" Margin="0,6,0,0"/>
+                    <CheckBox Content="{x:Static loc:Strings.ExtendedLabelLabel}" IsChecked="{Binding ExtendedLabel}" Margin="0,4,0,0"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Status -->
+            <StackPanel Grid.Row="4" Margin="0,0,0,4">
+                <TextBlock Text="{Binding StatusText}" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,4"/>
+                <ProgressBar Value="{Binding ProgressPercent}" Minimum="0" Maximum="100" Height="20"/>
+            </StackPanel>
+
+            <!-- Log toggle -->
+            <Button Grid.Row="5"
+                    Content="{Binding LogToggleGlyph}"
+                    Command="{Binding ToggleLogCommand}"
+                    HorizontalAlignment="Right"
+                    Width="20" Height="18"
+                    Padding="0"
+                    Margin="0,0,0,6"
+                    ToolTip.Tip="{x:Static loc:Strings.ShowHideLogTooltip}"/>
+
+            <!-- Start / Close -->
+            <Grid Grid.Row="6" ColumnDefinitions="*,Auto,Auto">
+                <Button Grid.Column="1"
+                        Content="{x:Static loc:Strings.StartButton}"
+                        Width="75"
+                        Margin="0,0,6,0"
+                        Command="{Binding StartCommand}"/>
+                <Button Grid.Column="2"
+                        Content="{x:Static loc:Strings.CloseButton}"
+                        Width="75"
+                        Command="{Binding CloseCommand}"/>
+            </Grid>
+
+        </Grid>
+    </DockPanel>
+</Window>

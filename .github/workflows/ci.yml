@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore RufusLinux.slnx
+
+      - name: Build
+        run: dotnet build RufusLinux.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test src/RufusLinux.Tests/RufusLinux.Tests.csproj -c Release --no-build
+
+  package:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build .deb package
+        run: bash packaging/deb/build.sh
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rufuslinux-deb
+          path: artifacts/deb/*.deb

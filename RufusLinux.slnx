@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RufusLinux.Core/RufusLinux.Core.csproj" />
+    <Project Path="src/RufusLinux.Helper/RufusLinux.Helper.csproj" />
+    <Project Path="src/RufusLinux.Tests/RufusLinux.Tests.csproj" />
+    <Project Path="src/RufusLinux.UI/RufusLinux.UI.csproj" />
+  </Folder>
+</Solution>

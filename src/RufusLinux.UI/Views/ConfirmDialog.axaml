@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RufusLinux.UI.ViewModels"
+        xmlns:loc="using:RufusLinux.UI.Localization"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="420" d:DesignHeight="160"
+        x:Class="RufusLinux.UI.Views.ConfirmDialog"
+        x:DataType="vm:ConfirmDialogViewModel"
+        Width="420"
+        SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Title="{Binding Title}">
+
+    <Design.DataContext>
+        <vm:ConfirmDialogViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Margin="16" Spacing="12">
+        <TextBlock Text="{Binding Message}" TextWrapping="Wrap" FontWeight="Bold"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="6">
+            <Button Content="{x:Static loc:Strings.OkButton}" Command="{Binding ConfirmCommand}"/>
+            <Button Content="{x:Static loc:Strings.CancelButton}" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
